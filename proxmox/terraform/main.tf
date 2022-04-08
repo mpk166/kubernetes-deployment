@@ -16,7 +16,7 @@ resource "proxmox_vm_qemu" "control_plane" {
   disk {
     size            = "20G"
     type            = "scsi"
-    storage         = "local-lvm"
+    storage         = "pve-0-lvm"
     iothread        = 1
   }
 
@@ -49,7 +49,7 @@ resource "proxmox_vm_qemu" "worker_nodes" {
   disk {
     size            = "20G"
     type            = "scsi"
-    storage         = "local-lvm"
+    storage         = "pve-0-lvm"
     iothread        = 1
   }
 
