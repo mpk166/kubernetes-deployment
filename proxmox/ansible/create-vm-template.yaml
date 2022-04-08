@@ -1,5 +1,5 @@
 ---
-- hosts: pve
+- hosts: pve-0.manpk.nl
   gather_facts: no
   name: "create VM template"
   vars:
@@ -16,6 +16,12 @@
         url: "{{ vm.cloud_image_url }}"
         dest: "{{ vm.cloud_image_path }}"
         mode: 0700
+
+    - name: install packages
+      command: "apt update -y && apt install libguestfs-tools -y"
+
+    - name: install package in img
+      command: "virt-customize -a focal-server-cloudimg-amd64.img --install qemu-guest-agent"
 
     - name: create a VM to use as a template
       command: "qm create {{ vm.template_id }} --name {{ vm.template_name }} --memory {{ vm.template_memory }} --net0 virtio,bridge=vmbr0"
