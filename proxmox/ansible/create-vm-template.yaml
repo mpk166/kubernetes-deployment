@@ -21,7 +21,7 @@
       command: "apt update -y && apt install libguestfs-tools -y"
 
     - name: install package in img
-      command: "virt-customize -a focal-server-cloudimg-amd64.img --install qemu-guest-agent"
+      command: "virt-customize -a {{ vm.cloud_image_path }} --install qemu-guest-agent"
 
     - name: create a VM to use as a template
       command: "qm create {{ vm.template_id }} --name {{ vm.template_name }} --memory {{ vm.template_memory }} --net0 virtio,bridge=vmbr0"
