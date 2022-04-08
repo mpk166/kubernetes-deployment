@@ -1,13 +1,13 @@
 variable "pm_api_url" {
-  default = "https://proxmox.local:8006/api2/json"
+  default = "https://pve-0.manpk.nl:8006/api2/json"
 }
 
 variable "pm_node" {
-  default = "pve"
+  default = "pve-0"
 }
 
 variable "pm_user" {
-  default = ""
+  default = "root@pam"
 }
 
 variable "pm_password" {
