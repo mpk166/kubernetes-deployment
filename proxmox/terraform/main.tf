@@ -27,7 +27,7 @@ resource "proxmox_vm_qemu" "control_plane" {
 
   # cloud-init settings
   # adjust the ip and gateway addresses as needed
-  ipconfig0         = "ip=192.168.0.11${count.index}/24,gw=192.168.0.1"
+  ipconfig0         = "ip=192.168.1.11${count.index}/24,gw=192.168.1.1"
   sshkeys = file("${var.ssh_key_file}")
 }
 
@@ -60,6 +60,6 @@ resource "proxmox_vm_qemu" "worker_nodes" {
 
   # cloud-init settings
   # adjust the ip and gateway addresses as needed
-  ipconfig0         = "ip=192.168.0.12${count.index}/24,gw=192.168.0.1"
+  ipconfig0         = "ip=192.168.1.12${count.index}/24,gw=192.168.1.1"
   sshkeys = file("${var.ssh_key_file}")
 }
