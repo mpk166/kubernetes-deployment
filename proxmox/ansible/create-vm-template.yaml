@@ -1,5 +1,5 @@
 ---
-- hosts: pve-0.manpk.nl
+- hosts: pve
   gather_facts: no
   name: "create VM template"
   vars:
